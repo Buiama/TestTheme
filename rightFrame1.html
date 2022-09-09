@@ -20,6 +20,8 @@
       <label><input type="radio" name="theme" value="dark">Dark</label>
   </div>
 <script>
+  console.log("right:");
+  console.log(window);
     document.querySelector('.themes').addEventListener('change',(event)=> {
         if(event.target.nodeName ==='INPUT') {
             document.documentElement.classList.remove('dark','light');
