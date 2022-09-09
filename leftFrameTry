@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta name="author" content="Dima Buialo">
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="css/leftFrame1Try.css">
+</head>
+<body>
+	<input type="checkbox" id="toggle" class="toggleIn">
+    <label for="toggle" class="toggleLab">
+       	<span class="toggleBack"></span>
+    </label>
+	<div class = "background">
+		<h1>Тут будуть завдання</h1>
+	</div>
+</body>

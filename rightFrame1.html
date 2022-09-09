@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta name="author" content="Dima Buialo">
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="css/rightFrame1.css">
+</head>
+
+<body><!--  onload="edit('textmate','c_cpp')" -->
+  <button id="run" onclick='run();'>Run</button>
+  <select id="language" onchange="change();"> <!-- onmousedown="console.log('l')" -->
+    <option value="c_cpp">C++</option><!-- selected -->
+    <option value="csharp">C#</option>
+    <option value="python">Python</option>
+    <option value="java">Java</option>
+  </select>
+  <!-- <input type = "button" value = "leftFrame1.html" onclick = "window.parent.leftFrame.location.reload();"/> -->
+  <div class="themes">
+      <label><input type="radio" name="theme" value="light" checked>Light</label>
+      <label><input type="radio" name="theme" value="dark">Dark</label>
+  </div>
+<script>
+    document.querySelector('.themes').addEventListener('change',(event)=> {
+        if(event.target.nodeName ==='INPUT') {
+            document.documentElement.classList.remove('dark','light');
+            document.documentElement.classList.add(event.target.value);
+            edit(editor_cpp,'c_cpp', 'idle_fingers');
+            edit(editor_csharp,'csharp', 'idle_fingers');
+            edit(editor_python,'python', 'idle_fingers');
+            edit(editor_java,'java', 'idle_fingers');
+            //top.mainFrame.homeright.location.reload();
+            //parent.window.parent.window.frames[1].window.location.reload();
+            //console.log(window.parent.);
+            //window.document.parent[0].location.reload();
+            //console.log(window)
+            //document.getElementById('FrameID').contentWindow.location.reload(true);
+            //window.parent.location.reload();
+            //location.reload();
+            //window.parent.frames[1].document.reload();
+            //location = "leftFrame1.html";
+            //window.parent.document.getElementById('hhh').contentWindow.location.reload(true);
+        }
+    });
+
+
+function change(){
+    //if(($("#language").val())!=='c++') {alert("fff");}
+    //var t = $("#language").find(":selected").val();
+    /*
+        'public class Main {' +
+            'public static void main(String[] args) {' +
+                'System.out.println("Write your code here");' +
+            '}' +
+        '}'
+    */
+    var lang = ($("#language").val());
+
+    // Warning!!! Костыли!!! Потом исправить... (Тестовый вариант)
+
+    if(lang == 'c_cpp') {
+        document.getElementById("code_csharp").style.display="none";
+        document.getElementById("code_python").style.display="none";
+        document.getElementById("code_java").style.display="none";
+        document.getElementById("code_cpp").style.display="block";
+    }
+    else if(lang == 'csharp') {
+        document.getElementById("code_cpp").style.display="none";
+        document.getElementById("code_python").style.display="none";
+        document.getElementById("code_java").style.display="none";
+        document.getElementById("code_csharp").style.display="block";
+    }
+    else if(lang == 'python') {
+        document.getElementById("code_cpp").style.display="none";
+        document.getElementById("code_csharp").style.display="none";
+        document.getElementById("code_java").style.display="none";
+        document.getElementById("code_python").style.display="block";
+    }
+    else if(lang == 'java') {
+        document.getElementById("code_cpp").style.display="none";
+        document.getElementById("code_csharp").style.display="none";
+        document.getElementById("code_python").style.display="none";
+        document.getElementById("code_java").style.display="block";
+    }
+}
+</script>
+<!-- виводимо наш код -->
+  <div id="code_cpp">#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+  cout << "Write your code here" << endl;
+}
+  </div>
+
+
+  <div id="code_csharp">using System;
+class Program {
+  static void Main() {
+    Console.WriteLine("Write your code here");
+  }
+}
+  </div>
+  <div id="code_python">print ("Write your code here")
+  </div>
+  <div id="code_java">public class Main {
+    public static void main(String[] args) {
+        System.out.println("Write your code here");
+    }
+}
+  </div>
+
+
+  <p>Output:</p>
+  <pre id="output">Press run to compile</pre>
+
+  <script src="jquery.min.js"></script> <!-- подключаємо jquery -->
+  <script src="ace/ace.js"></script> <!-- подключаємо асик -->
+
+  <script src="editor.js"></script>
+  <script src="output.js"></script>
+</body>
+</html>
+
+
+
+<!-- if(lang == 'c_cpp') {
+    $("#code").text('C++');
+alert(lang);
+}
+else if(lang == 'csharp') {
+    $("#code").text('C#');
+alert(lang);
+}
+else if(lang == 'python') {
+    $("#code").text('Python');
+alert(lang);
+}
+else if(lang == 'java') {
+    $("#code").text("Java");//document.getElementById("javaBlock").innerHTML
+    alert(lang);
+}
+edit('textmate', lang); -->

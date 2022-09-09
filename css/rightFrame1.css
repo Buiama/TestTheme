@@ -1,0 +1,22 @@
+#code_cpp, #code_csharp, #code_python, #code_java { 
+     width: 100%;
+     float:left;
+     min-height:70vh;
+     overflow: hidden;
+ }
+ #code_csharp, #code_python, #code_java {
+ 	display: none;
+ }
+
+ html.light {
+ 	--color-bg:#ffffff;
+ 	--color-text:#000000;
+ }
+ html.dark {
+ 	--color-bg:#000000;
+ 	--color-text:#ffffff;
+ }
+ body {
+ 	background-color: var(--color-bg);
+ 	color: var(--color-text); 
+ }
